@@ -19,6 +19,10 @@ COPY Gemfile ./
 COPY Gemfile.lock ./
 RUN gem install bundler foreman && bundle install
 
+# TODO: figure out why on earth these won't work from the Gemfile
+RUN gem install standardrb
+RUN gem install htmlbeautifier
+
 # Copy package.json for npm install
 COPY package.json ./
 RUN npm install

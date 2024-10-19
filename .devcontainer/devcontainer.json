@@ -6,7 +6,9 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "standardRuby.commandPath": "/usr/local/bundle/bin/standardrb",
+        "standardRuby.autofix": false
       },
       "extensions": [
         "Shopify.ruby-lsp",
@@ -19,7 +21,7 @@
   "forwardPorts": [
     4000
   ],
-  "postCreateCommand": "cd /workspace && foreman start",
+  "postCreateCommand": "cd /workspace && ./bin/bridgetown frontend:build && foreman start",
   "remoteUser": "root",
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind"
